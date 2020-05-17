@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head') %>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Node.js File Upload</h1>
+
+      <form method="post" action="/avatar" enctype="multipart/form-data">
+        <div class="field">
+          <div id="file-js-example" class="file has-name">
+            <label class="file-label">
+              <input class="file-input" type="file" name="avatar" accept="image/*">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose a file…
+                </span>
+              </span>
+              <span class="file-name">
+                No file uploaded
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="control">
+          <button class="button is-primary" disabled id="file-js-submit">Upload</button>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <script>
+    const fileInput = document.querySelector('#file-js-example input[type=file]');
+    fileInput.onchange = () => {
+      if (fileInput.files.length > 0) {
+        const fileName = document.querySelector('#file-js-example .file-name');
+        fileName.textContent = fileInput.files[0].name;
+        const submitButton = document.querySelector('#file-js-submit');
+        submitButton.removeAttribute('disabled')
+      }
+    }
+  </script>
+</body>
+
+</html>

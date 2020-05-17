@@ -1,0 +1,21 @@
+{
+  "name": "node-file-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "uuidv4": "^6.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
