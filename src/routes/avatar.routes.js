@@ -3,14 +3,12 @@ const multer = require("multer");
 const uploadConfig = require("../config/upload");
 
 const avatarRouter = Router();
-const upload = multer(uploadConfig);
+const upload = multer({ storage: uploadConfig.storage });
 
 avatarRouter.post("/", upload.single("avatar"), function (req, res) {
-  const { filename } = req.file;
+  const { filename, size } = req.file;
 
-  console.log(filename);
-
-  return res.render("avatar", { image: `/uploads/${filename}` });
+  return res.render("avatar", { image: `/uploads/${filename}`, size });
 });
 
 module.exports = avatarRouter;
